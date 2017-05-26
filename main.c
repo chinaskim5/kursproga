@@ -36,14 +36,14 @@ int main (int argc, char* argv[])
     
     numberOfElements = atoi(argv[2]);
     int usl = atoi(argv[3]);
-    printf("%d",usl);
+//    printf("%d",usl);
     
     if ( numberOfElements > 32768 )
     {
 	printf("\nMax 32768(2^18) el\n");
 	return 0;
     }
-    printf("%d",numberOfElements);
+//    printf("%d",numberOfElements);
     array = (int*)malloc(numberOfElements*sizeof(int));
     //array = (int*)realloc(NULL, numberOfElements*sizeof(int)); //equvialent malloc
     switch(usl)
@@ -100,7 +100,7 @@ int main (int argc, char* argv[])
     
     double (*powerfunc)(int *A,int n);
     
-    ext_library = dlopen("/usr/lib64/sortlib.so",RTLD_LAZY);
+    ext_library = dlopen("/home/emind/kursprog/sortlib.so",RTLD_LAZY);
     if(!ext_library)
     {
 	fprintf(stderr,"dlopen() error : %s\n", dlerror());
@@ -112,11 +112,11 @@ int main (int argc, char* argv[])
     
     
     printf("\n%s\n",argv[1]);
-    for (i = 0 ; i < numberOfElements ; i++)
+    /*for (i = 0 ; i < numberOfElements ; i++)
     {
 	printf(" %d",array[i]);
     }
-    printf("\n");
+    printf("\n");*/
     
     
     t = wtime ();
@@ -124,15 +124,15 @@ int main (int argc, char* argv[])
     t = wtime() - t;
     
     
-    for (i = 0 ; i < numberOfElements ; i++)
+    /*for (i = 0 ; i < numberOfElements ; i++)
     {
 	printf(" %d",array[i]);
     }
-    printf("\n%lf",t);
+    printf("\n%lf",t);*/
     
     FILE *timer;
     
-    if (argv[1] == "MergeSort")
+    if (strcmp (argv[1],"MergeSort") == 0)
     {
 	 timer = fopen("time.txt","a");
     }
