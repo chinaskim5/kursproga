@@ -38,9 +38,9 @@ int main (int argc, char* argv[])
     int usl = atoi(argv[3]);
 //    printf("%d",usl);
     
-    if ( numberOfElements > 32768 )
+    if ( numberOfElements > 32768 || numberOfElements < 1 )
     {
-	printf("\nMax 32768(2^18) el\n");
+	printf("\nMax 32768(2^18) el Min 1\n");
 	return 0;
     }
 //    printf("%d",numberOfElements);
@@ -134,11 +134,11 @@ int main (int argc, char* argv[])
     
     if (strcmp (argv[1],"MergeSort") == 0)
     {
-	 timer = fopen("time.txt","a");
+	 timer = fopen("time(d).txt","a");
     }
     else
     {
-	timer = fopen("time1.txt","a");
+	timer = fopen("time1(d).txt","a");
     }
     if (!timer)
 	{
